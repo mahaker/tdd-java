@@ -3,4 +3,6 @@
 - [ ] Money.amountをprivateにする
 - [x] Dollarの副作用はどうする？
 - [ ] Moneyの丸め処理はどうする？
+- [ ] equalsメソッドを実装する
+- [ ] hashCodeメソッドを実装する
 
