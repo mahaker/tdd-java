@@ -2,12 +2,19 @@ package mahaker.tdd.money;
 
 public abstract class Money {
   protected int amount;
+  protected String currency;
+
+  public Money(int amount, String currency) {
+    this.amount = amount;
+    this.currency = currency;
+  }
 
   // TODO まだ実装はサブクラスにある
   public abstract Money times(int amount);
 
-  // TODO まだ実装はサブクラスにある
-  public abstract String currency();
+  public String currency() {
+    return currency;
+  }
 
   /**
    * Dollarクラスを返すFactory Method
@@ -15,7 +22,7 @@ public abstract class Money {
    * @return Money
    */
   public static Money dollar(int amount) {
-    return new Dollar(amount);
+    return new Dollar(amount, "USD");
   }
 
   /**
@@ -24,7 +31,7 @@ public abstract class Money {
    * @return Money
    */
   public static Money franc(int amount) {
-    return new Franc(amount);
+    return new Franc(amount, "CHF");
   }
 
   @Override
