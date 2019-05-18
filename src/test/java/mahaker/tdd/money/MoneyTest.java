@@ -13,36 +13,16 @@ public class MoneyTest {
   @Nested
   public class DollarTest {
 
-    @DisplayName("$5の2倍は$10である")
+    @DisplayName("$5の2倍は$10であり、$5の3倍は$15である")
     @Test
     public void testMultiplication() {
       // arrange
       final Dollar five = new Dollar(5);
 
       // action
-      final Dollar result = five.times(2);
-
       // assert
-      assertEquals(10, result.amount);
-    }
-
-    @DisplayName("timesメソッドはオブジェクトの状態を変えない")
-    @Test
-    public void testMultiplication2() {
-      // arrange
-      final Dollar five = new Dollar(5);
-
-      // action
-      final Dollar result1 = five.times(2);
-
-      // assert
-      assertEquals(10, result1.amount);
-
-      // action
-      final Dollar result2 = five.times(3);
-
-      // assert
-      assertEquals(15, result2.amount);
+      assertEquals(new Dollar(10), five.times(2));
+      assertEquals(new Dollar(15), five.times(3));
     }
 
     @DisplayName("同じamountのときはequalsメソッドはtrueを返す")
