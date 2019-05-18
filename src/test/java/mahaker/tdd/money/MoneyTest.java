@@ -1,14 +1,30 @@
 package mahaker.tdd.money;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @DisplayName("moneyパッケージ内のクラスのテスト")
 public class MoneyTest {
+
+  @DisplayName("Moneyクラスのテスト")
+  @Nested
+  public class MoneyClassTest {
+
+    @DisplayName("別の通貨同士を比較する")
+    @Test
+    public void testEqualityOtherMonies() {
+      // arrange
+      final Dollar dollar = new Dollar(5);
+      final Franc franc = new Franc(5);
+
+      // action
+      // assert
+      assertFalse(dollar.equals(franc));
+    }
+  }
 
   @DisplayName("Dollarクラスのテスト")
   @Nested
