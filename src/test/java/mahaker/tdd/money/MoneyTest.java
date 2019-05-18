@@ -1,6 +1,7 @@
 package mahaker.tdd.money;
 
 import mahaker.tdd.bank.Bank;
+import mahaker.tdd.bank.Sum;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -68,8 +69,47 @@ public class MoneyTest {
       final Money five = Money.dollar(5);
       Expression sum = five.plus(five);
       final Bank bank = new Bank();
-      final Money reduced = bank.reduced(sum, "USD");
+      final Money reduced = bank.reduce(sum, "USD");
       assertEquals(Money.dollar(10), reduced);
+    }
+
+    @DisplayName("Bank#reduceを実行すると結果を得られること")
+    @Test
+    public void testReduceSum() {
+      // arrange
+      final Money augendDollar = Money.dollar(5);
+      final Money addendDollar = Money.dollar(6);
+      final Expression sum = new Sum(augendDollar, addendDollar);
+
+      // action
+      final Bank bank = new Bank();
+      final Money result = bank.reduce(sum, "USD");
+
+      // assert
+      assertEquals(Money.dollar(11), result);
+    }
+
+    @DisplayName("Bank#reduceにMoneyを渡せること")
+    @Test
+    public void testReduceMoney() {
+      // arrange
+      final Bank bank = new Bank();
+
+      // action
+      final Money result = bank.reduce(Money.dollar(1), "USD");
+
+      // assert
+      assertEquals(Money.dollar(1), result);
+    }
+
+    @DisplayName("plusメソッドの結果はSumクラスであること")
+    @Test
+    public void testAdditionReturnsSum() {
+      final Money five = Money.dollar(5);
+      Expression result = five.plus(five);
+      final Sum sum = (Sum) result;
+      assertEquals(five, sum.augend);
+      assertEquals(five, sum.addend);
     }
 
   }

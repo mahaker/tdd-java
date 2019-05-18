@@ -4,9 +4,8 @@ import mahaker.tdd.money.Expression;
 import mahaker.tdd.money.Money;
 
 public class Bank {
-  public Money reduced(Expression source, String toCurrency) {
-    // 仮実装
-    return Money.dollar(10);
+  public Money reduce(Expression source, String toCurrency) {
+    return source.reduce(toCurrency);
   }
 
 }

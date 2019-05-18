@@ -1,5 +1,7 @@
 package mahaker.tdd.money;
 
+import mahaker.tdd.bank.Sum;
+
 public class Money implements Expression {
   protected int amount;
   protected String currency;
@@ -17,8 +19,17 @@ public class Money implements Expression {
     return currency;
   }
 
-  public Expression plus(Money money) {
-    return new Money(amount + money.amount, currency);
+  public Expression plus(Money addend) {
+    return new Sum(this, addend);
+  }
+
+  public int getAmount() {
+    return this.amount;
+  }
+
+  @Override
+  public Money reduce(String toCurrency) {
+    return this;
   }
 
   /**
