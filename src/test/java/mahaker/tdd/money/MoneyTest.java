@@ -44,5 +44,30 @@ public class MoneyTest {
       // assert
       assertEquals(15, result2.amount);
     }
+
+    @DisplayName("同じamountのときはequalsメソッドはtrueを返す")
+    @Test
+    public void testEquality() {
+      // arrange
+      Dollar dollar1 = new Dollar(5);
+      Dollar dollar2 = new Dollar(5);
+
+      // action
+      // assert
+      assertTrue(dollar1.equals(dollar2));
+    }
+
+    @DisplayName("違うamountのときはequalsメソッドはtrueを返す")
+    @Test
+    public void testEquality2() {
+      // arrange
+      Dollar dollar1 = new Dollar(5);
+      Dollar dollar2 = new Dollar(6);
+
+      // action
+      // assert
+      assertFalse(dollar1.equals(dollar2));
+    }
+
   }
 }
