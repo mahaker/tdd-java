@@ -6,6 +6,9 @@ public abstract class Money {
   // TODO まだ実装はサブクラスにある
   public abstract Money times(int amount);
 
+  // TODO まだ実装はサブクラスにある
+  public abstract String currency();
+
   /**
    * Dollarクラスを返すFactory Method
    * @param amount
@@ -32,4 +35,5 @@ public abstract class Money {
     return this.amount == money.amount
       && getClass() == o.getClass();
   }
+
 }

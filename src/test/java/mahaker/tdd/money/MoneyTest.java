@@ -107,6 +107,21 @@ public class MoneyTest {
       // assert
       assertFalse(franc1.equals(franc2));
     }
+  }
+
+  @DisplayName("currencyクラスのテスト")
+  @Nested
+  public class CurrencyTest {
+
+    @DisplayName("通貨情報を取得できること")
+    @Test
+    public void testCurrency() {
+      // arrange
+      // action
+      // assert
+      assertEquals("USD", Money.dollar(1).currency());
+      assertEquals("CHF", Money.franc(1).currency());
+    }
 
   }
 }
