@@ -1,6 +1,6 @@
 package mahaker.tdd.money;
 
-public abstract class Money {
+public class Money {
   protected int amount;
   protected String currency;
 
@@ -9,8 +9,9 @@ public abstract class Money {
     this.currency = currency;
   }
 
-  // TODO まだ実装はサブクラスにある
-  public abstract Money times(int amount);
+  public Money times(int multiplier) {
+    return new Money(amount * multiplier, currency);
+  }
 
   public String currency() {
     return currency;
@@ -38,9 +39,13 @@ public abstract class Money {
   public boolean equals(Object o) {
     final Money money = (Money) o;
 
-    // TODO モデルにJavaの仕組みが出てくるのはなぜ？
     return this.amount == money.amount
-      && getClass() == o.getClass();
+      && currency().equals(((Money) o).currency());
+  }
+
+  @Override
+  public String toString() {
+    return amount + " " + currency();
   }
 
 }

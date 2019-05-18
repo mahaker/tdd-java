@@ -24,6 +24,15 @@ public class MoneyTest {
       // assert
       assertFalse(dollar.equals(franc));
     }
+
+    @DisplayName("Moneyクラスと別の通貨同士を比較する")
+    @Test
+    public void testEqualityMoneyAndOtherMoney() {
+      // arrange
+      // action
+      // assert
+      assertTrue(new Money(10, "CHF").equals(new Franc(10, "CHF")));
+    }
   }
 
   @DisplayName("Dollarクラスのテスト")
