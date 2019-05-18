@@ -20,10 +20,29 @@ public class MoneyTest {
       final Dollar five = new Dollar(5);
 
       // action
-      five.times(2);
+      final Dollar result = five.times(2);
 
       // assert
-      assertEquals(10, five.amount);
+      assertEquals(10, result.amount);
+    }
+
+    @DisplayName("timesメソッドはオブジェクトの状態を変えない")
+    @Test
+    public void testMultiplication2() {
+      // arrange
+      final Dollar five = new Dollar(5);
+
+      // action
+      final Dollar result1 = five.times(2);
+
+      // assert
+      assertEquals(10, result1.amount);
+
+      // action
+      final Dollar result2 = five.times(3);
+
+      // assert
+      assertEquals(15, result2.amount);
     }
   }
 }
