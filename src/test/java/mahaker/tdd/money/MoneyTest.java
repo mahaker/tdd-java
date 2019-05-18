@@ -13,7 +13,7 @@ public class MoneyTest {
   @Nested
   public class MoneyClassTest {
 
-    @DisplayName("別の通貨同士を比較する")
+    @DisplayName("別の通貨同士を比較すると、falseを返すこと")
     @Test
     public void testEqualityOtherMonies() {
       // arrange
@@ -25,21 +25,7 @@ public class MoneyTest {
       assertFalse(dollar.equals(franc));
     }
 
-    @DisplayName("Moneyクラスと別の通貨同士を比較する")
-    @Test
-    public void testEqualityMoneyAndOtherMoney() {
-      // arrange
-      // action
-      // assert
-      assertTrue(new Money(10, "CHF").equals(new Franc(10, "CHF")));
-    }
-  }
-
-  @DisplayName("Dollarクラスのテスト")
-  @Nested
-  public class DollarTest {
-
-    @DisplayName("$5の2倍は$10であり、$5の3倍は$15である")
+    @DisplayName("金額の掛け算が正しいこと")
     @Test
     public void testMultiplication() {
       // arrange
@@ -77,48 +63,7 @@ public class MoneyTest {
 
   }
 
-  @DisplayName("Francクラスのテスト")
-  @Nested
-  public class FrancTest {
-
-    @DisplayName("5 CHFの2倍は10 CHFであり、5 CHFの3倍は15 CHFである")
-    @Test
-    public void testMultiplication() {
-      // arrange
-      final Money five = Money.franc(5);
-
-      // action
-      // assert
-      assertEquals(Money.franc(10), five.times(2));
-      assertEquals(Money.franc(15), five.times(3));
-    }
-
-    @DisplayName("同じamountのときはequalsメソッドはtrueを返す")
-    @Test
-    public void testEquality() {
-      // arrange
-      final Money franc1 = Money.franc(5);
-      final Money franc2 = Money.franc(5);
-
-      // action
-      // assert
-      assertTrue(franc1.equals(franc2));
-    }
-
-    @DisplayName("違うamountのときはequalsメソッドはfalseを返す")
-    @Test
-    public void testEquality2() {
-      // arrange
-      final Money franc1 = Money.franc(5);
-      final Money franc2 = Money.franc(6);
-
-      // action
-      // assert
-      assertFalse(franc1.equals(franc2));
-    }
-  }
-
-  @DisplayName("currencyクラスのテスト")
+  @DisplayName("currencyのテスト")
   @Nested
   public class CurrencyTest {
 
