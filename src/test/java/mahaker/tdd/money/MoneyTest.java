@@ -1,5 +1,6 @@
 package mahaker.tdd.money;
 
+import mahaker.tdd.bank.Bank;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -59,6 +60,16 @@ public class MoneyTest {
       // action
       // assert
       assertFalse(dollar1.equals(dollar2));
+    }
+
+    @DisplayName("通貨の足し算ができること")
+    @Test
+    public void testAddition() {
+      final Money five = Money.dollar(5);
+      Expression sum = five.plus(five);
+      final Bank bank = new Bank();
+      final Money reduced = bank.reduced(sum, "USD");
+      assertEquals(Money.dollar(10), reduced);
     }
 
   }
