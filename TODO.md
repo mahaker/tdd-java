@@ -7,4 +7,7 @@
 - [ ] hashCodeメソッドを実装する
 - [ ] nullとの等価性比較
 - [ ] 他のオブジェクトとの等価性比較
-
+- [x] 5 CHF * 2 = 10 CHF
+- [ ] DollarとFrancの重複をなくす
+- [ ] equalsの一般化
+- [ ] timesの一般化
