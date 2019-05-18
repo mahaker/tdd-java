@@ -5,6 +5,7 @@ buildscript {
     ext {
         junitPlatformVersion = '1.0.1'
         junitJupiterVersion = '5.4.2'
+        assertJVersion = '3.11.1'
     }
     repositories {
         mavenCentral()
@@ -34,4 +35,7 @@ dependencies {
 
     // Only needed to run tests in an (IntelliJ) IDE(A) that bundles an older version
     testRuntime "org.junit.platform:junit-platform-launcher:${junitPlatformVersion}"
+
+    // AssertJ
+    testCompile "org.assertj:assertj-core:${assertJVersion}"
 }
