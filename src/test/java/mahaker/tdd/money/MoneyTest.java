@@ -17,8 +17,8 @@ public class MoneyTest {
     @Test
     public void testEqualityOtherMonies() {
       // arrange
-      final Dollar dollar = new Dollar(5);
-      final Franc franc = new Franc(5);
+      final Money dollar = Money.dollar(5);
+      final Money franc = Money.franc(5);
 
       // action
       // assert
@@ -34,20 +34,20 @@ public class MoneyTest {
     @Test
     public void testMultiplication() {
       // arrange
-      final Dollar five = new Dollar(5);
+      final Money fiveDollar = Money.dollar(5);
 
       // action
       // assert
-      assertEquals(new Dollar(10), five.times(2));
-      assertEquals(new Dollar(15), five.times(3));
+      assertEquals(Money.dollar(10), fiveDollar.times(2));
+      assertEquals(Money.dollar(15), fiveDollar.times(3));
     }
 
     @DisplayName("同じamountのときはequalsメソッドはtrueを返す")
     @Test
     public void testEquality() {
       // arrange
-      Dollar dollar1 = new Dollar(5);
-      Dollar dollar2 = new Dollar(5);
+      final Money dollar1 = Money.dollar(5);
+      final Money dollar2 = Money.dollar(5);
 
       // action
       // assert
@@ -58,8 +58,8 @@ public class MoneyTest {
     @Test
     public void testEquality2() {
       // arrange
-      Dollar dollar1 = new Dollar(5);
-      Dollar dollar2 = new Dollar(6);
+      final Money dollar1 = Money.dollar(5);
+      final Money dollar2 = Money.dollar(6);
 
       // action
       // assert
@@ -76,36 +76,36 @@ public class MoneyTest {
     @Test
     public void testMultiplication() {
       // arrange
-      final Franc five = new Franc(5);
+      final Money five = Money.franc(5);
 
       // action
       // assert
-      assertEquals(new Franc(10), five.times(2));
-      assertEquals(new Franc(15), five.times(3));
+      assertEquals(Money.franc(10), five.times(2));
+      assertEquals(Money.franc(15), five.times(3));
     }
 
     @DisplayName("同じamountのときはequalsメソッドはtrueを返す")
     @Test
     public void testEquality() {
       // arrange
-      Dollar dollar1 = new Dollar(5);
-      Dollar dollar2 = new Dollar(5);
+      final Money franc1 = Money.franc(5);
+      final Money franc2 = Money.franc(5);
 
       // action
       // assert
-      assertTrue(dollar1.equals(dollar2));
+      assertTrue(franc1.equals(franc2));
     }
 
-    @DisplayName("違うamountのときはequalsメソッドはtrueを返す")
+    @DisplayName("違うamountのときはequalsメソッドはfalseを返す")
     @Test
     public void testEquality2() {
       // arrange
-      Dollar dollar1 = new Dollar(5);
-      Dollar dollar2 = new Dollar(6);
+      final Money franc1 = Money.franc(5);
+      final Money franc2 = Money.franc(6);
 
       // action
       // assert
-      assertFalse(dollar1.equals(dollar2));
+      assertFalse(franc1.equals(franc2));
     }
 
   }
