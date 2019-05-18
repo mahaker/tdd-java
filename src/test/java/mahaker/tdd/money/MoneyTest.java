@@ -68,7 +68,6 @@ public class MoneyTest {
       assertEquals(new Franc(15), five.times(3));
     }
 
-    @Disabled
     @DisplayName("同じamountのときはequalsメソッドはtrueを返す")
     @Test
     public void testEquality() {
@@ -81,7 +80,6 @@ public class MoneyTest {
       assertTrue(dollar1.equals(dollar2));
     }
 
-    @Disabled
     @DisplayName("違うamountのときはequalsメソッドはtrueを返す")
     @Test
     public void testEquality2() {
