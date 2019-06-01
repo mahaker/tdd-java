@@ -19,5 +19,5 @@
 - [x] Bank#reduce(Money)
 - [x] Moneyを変換して換算をする
 - [x] Reduce(Bank, String)
-- [ ] Sumのplusメソッドを修正する
-- [ ] Expressionにtimesメソッドを追加する
+- [x] Sumのplusメソッドを修正する
+- [x] Expressionにtimesメソッドを追加する
