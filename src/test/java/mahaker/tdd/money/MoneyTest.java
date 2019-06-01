@@ -112,6 +112,30 @@ public class MoneyTest {
       assertEquals(five, sum.addend);
     }
 
+    @DisplayName("異なる通貨同士の足し算")
+    @Test
+    public void testReduceMoneyDifferentMoney() {
+      // arrange
+      final Bank bank = new Bank();
+      bank.addRate("CHF", "USD", 2);
+
+      // action
+      final Money result = bank.reduce(Money.franc(2), "USD");
+
+      // assert
+      assertEquals(Money.dollar(1), result);
+    }
+
+    @DisplayName("同じ通貨の場合はrateは1になること")
+    @Test
+    public void testIdentityRate() {
+      // arrange
+      // action
+
+      // assert
+      assertEquals(1, new Bank().rate("USD", "USD"));
+    }
+
   }
 
   @DisplayName("currencyのテスト")
@@ -127,6 +151,5 @@ public class MoneyTest {
       assertEquals("USD", Money.dollar(1).currency());
       assertEquals("CHF", Money.franc(1).currency());
     }
-
   }
 }

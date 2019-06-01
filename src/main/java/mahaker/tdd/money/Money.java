@@ -1,5 +1,6 @@
 package mahaker.tdd.money;
 
+import mahaker.tdd.bank.Bank;
 import mahaker.tdd.bank.Sum;
 
 public class Money implements Expression {
@@ -28,8 +29,9 @@ public class Money implements Expression {
   }
 
   @Override
-  public Money reduce(String toCurrency) {
-    return this;
+  public Money reduce(Bank bank, String toCurrency) {
+    final int rate = bank.rate(this.currency, toCurrency);
+    return new Money(this.amount / rate, toCurrency);
   }
 
   /**
