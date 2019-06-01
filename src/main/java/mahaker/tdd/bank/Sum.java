@@ -4,16 +4,24 @@ import mahaker.tdd.money.Expression;
 import mahaker.tdd.money.Money;
 
 public class Sum implements Expression {
-  public Money augend;
-  public Money addend;
+  public Expression augend;
+  public Expression addend;
 
-  public Sum(Money augend, Money addend) {
+  public Sum(Expression augend, Expression addend) {
     this.augend = augend;
     this.addend = addend;
   }
 
   @Override
   public Money reduce(Bank bank, String toCurrency) {
-    return new Money(this.augend.getAmount() + this.addend.getAmount(), toCurrency);
+    final int amount
+      = this.augend.reduce(bank, toCurrency).getAmount() + this.addend.reduce(bank, toCurrency).getAmount();
+    return new Money(amount, toCurrency);
   }
+
+  @Override
+  public Expression plus(Expression addend) {
+    return null;
+  }
+
 }

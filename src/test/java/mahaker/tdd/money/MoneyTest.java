@@ -126,6 +126,22 @@ public class MoneyTest {
       assertEquals(Money.dollar(1), result);
     }
 
+    @DisplayName("異なる通貨同士の足し算ができること")
+    @Test
+    public void testMixedAddition() {
+      // arrange
+      final Expression fiveDollars = Money.dollar(5);
+      final Expression tenFrancs = Money.franc(10);
+      final Bank bank = new Bank();
+      bank.addRate("CHF", "USD", 2);
+
+      // action
+      final Money result = bank.reduce(fiveDollars.plus(tenFrancs), "USD");
+
+      // assert
+      assertEquals(Money.dollar(10), result);
+    }
+
     @DisplayName("同じ通貨の場合はrateは1になること")
     @Test
     public void testIdentityRate() {
